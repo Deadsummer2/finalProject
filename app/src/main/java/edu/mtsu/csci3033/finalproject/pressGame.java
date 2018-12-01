@@ -1,73 +1,78 @@
 package edu.mtsu.csci3033.finalproject;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+
 public class pressGame extends AppCompatActivity {
-    double timer = 3.0;
+    //initialising global variables
+
     double multiplier = 1;
-    int currentScore = 0;
-    int count = 0;
-    double timerMax = 3.0;
-    int posNegMult = 1;
+    double currentScore = 1;
+    int count = 1;
+    long displayScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //initialising android screen elements
         final ImageButton pressThis;
         final TextView mainText;
-        final TextView score, multiplierDisplay;
+        final TextView finalScore;
+       // final TextView score, multiplierDisplay;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_press_game);
-
+        //linking elements by id
+        finalScore = findViewById(R.id.textView2);
         mainText = findViewById(R.id.textView);
         pressThis = findViewById(R.id.imageButton);
-        score = findViewById(R.id.editText);
-        multiplierDisplay = findViewById(R.id.editText2);
 
-/*        final float startY = pressThis.getY();
-        final float startX = pressThis.getX();*/
-
+        //on button press this will run
         pressThis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count++;
-                if(count%3 == 0 && (Math.random()*count)%2 == 0)
-                {
-                    posNegMult *= -1;
-                }
-                if(timer >= timerMax){
-                    timer -= .1;
-                    multiplier += .1;
-                }
-                double randomXYMult = Math.random() * 50;
-                //float y = pressThis.getY();
-                double y = 1 * randomXYMult * posNegMult;
+                //multiplier that will be applied to currentScore every button press
+                multiplier += .15;
+                //calculate the score then convert to long
+                currentScore = 10 + ( currentScore * multiplier);
+                displayScore = (long)currentScore;
+                //button will stay active for 8 seconds, after which it will become invisible and final message will display
+                    pressThis.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            pressThis.setVisibility(View.INVISIBLE);
+                            mainText.setText("Time has run out!");
+                            finalScore.setText("Final Score: " + String.valueOf(displayScore));
+                        }
+                    }, 8000);
+                //calculating x and y values
+                double randomXMult = Math.random() * 1000;
+                double randomYMult = Math.random() * 1800;
+                double y = 1 * randomYMult/* * posNegMult*/;
                 float Y = (float)y;
                 pressThis.setY(Y);
-                //double x = pressThis.getX();
-                double x = 1 * randomXYMult * posNegMult;
+                double x = 1 * randomXMult /* * posNegMult*/;
                 float X = (float)x;
                 pressThis.setX(X);
+                //after press the initial text will disappear
                 mainText.setText("");
-                //score.setText(currentScore);
-                //multiplierDisplay.setText(Double.toString(multiplier));
+                //display the users score
+                finalScore.setText(String.valueOf(displayScore));
             }
         });
 
 
     }
 
+    //the functions that set up the menu to go back to the main screen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
