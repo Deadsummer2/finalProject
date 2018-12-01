@@ -13,34 +13,55 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+
 public class pressGame extends AppCompatActivity {
+    double timer = 3.0;
+    double multiplier = 1;
+    int currentScore = 0;
+    int count = 0;
+    double timerMax = 3.0;
+    int posNegMult = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final ImageButton pressThis;
         final TextView mainText;
-        TextView score;
-
+        final TextView score, multiplierDisplay;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_press_game);
 
         mainText = findViewById(R.id.textView);
         pressThis = findViewById(R.id.imageButton);
         score = findViewById(R.id.editText);
+        multiplierDisplay = findViewById(R.id.editText2);
+
+/*        final float startY = pressThis.getY();
+        final float startX = pressThis.getX();*/
 
         pressThis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // ActionBar.LayoutParams param = new ActionBar.LayoutParams( 10 , 10 , 10);
-               // ((ViewGroup.MarginLayoutParams)pressThis.getLayoutParams()).topMargin += 30;
-                float y = pressThis.getY();
-                y+=40;
-                pressThis.setY(y);
-                float x = pressThis.getX();
-                x+=-50;
-                pressThis.setX(x);
+                count++;
+                if(count%3 == 0 && (Math.random()*count)%2 == 0)
+                {
+                    posNegMult *= -1;
+                }
+                if(timer >= timerMax){
+                    timer -= .1;
+                    multiplier += .1;
+                }
+                double randomXYMult = Math.random() * 50;
+                //float y = pressThis.getY();
+                double y = 1 * randomXYMult * posNegMult;
+                float Y = (float)y;
+                pressThis.setY(Y);
+                //double x = pressThis.getX();
+                double x = 1 * randomXYMult * posNegMult;
+                float X = (float)x;
+                pressThis.setX(X);
                 mainText.setText("");
-                //pressThis.setLayoutParams(param);
+                //score.setText(currentScore);
+                //multiplierDisplay.setText(Double.toString(multiplier));
             }
         });
 
