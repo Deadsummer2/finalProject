@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pressGame"></activity>
+        <activity android:name=".pressGame" />
+        <activity android:name=".TicTacToe"
+                  android:parentActivityName=".MainActivity">
+    </activity>
     </application>
 
 </manifest>
