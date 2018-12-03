@@ -55,7 +55,7 @@ public class pressGame extends AppCompatActivity {
                     }, 8000);
                 //calculating x and y values
                 double randomXMult = Math.random() * 1000;
-                double randomYMult = Math.random() * 1800;
+                double randomYMult = Math.random() * 1700;
                 double y = 1 * randomYMult/* * posNegMult*/;
                 float Y = (float)y;
                 pressThis.setY(Y);
