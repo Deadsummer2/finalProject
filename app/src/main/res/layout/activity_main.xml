@@ -7,15 +7,44 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button3"
+        android:layout_width="163dp"
+        android:layout_height="114dp"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="1dp"
+        android:onClick="tictac"
+        android:text="Tic Tac Toe " />
+
+    <Button
         android:id="@+id/button"
         android:layout_width="165dp"
         android:layout_height="121dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="102dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="102dp"
+        android:layout_marginTop="58dp"
         android:onClick="Tappin"
-        android:text="Wack a button " />
+        android:text="Button press game" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="163dp"
+        android:layout_height="114dp"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="1dp"
+        android:onClick="tictac"
+        android:text="Tic Tac Toe " />
+
+    <Button
+        android:id="@+id/Connect4"
+        android:layout_width="166dp"
+        android:layout_height="119dp"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="304dp"
+        android:text="Connect 4" />
 </RelativeLayout>
