@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-/*    public void TicTacToe(View view) {
+    public void tictac(View view) {
         Intent intent = new Intent(this, TicTacToe.class);
         //EditText editText = (EditText) findViewById((R.id.edit))
         startActivity(intent);
     }
 
-    public void Connect4(View view) {
+    /*public void Connect4(View view) {
         Intent intent = new Intent(this, Connect4.class);
         //EditText editText = (EditText) findViewById((R.id.edit))
         startActivity(intent);
