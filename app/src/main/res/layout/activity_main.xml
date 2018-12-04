@@ -27,17 +27,7 @@
         android:layout_marginTop="58dp"
         android:onClick="Tappin"
         android:text="Button press game" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="163dp"
-        android:layout_height="114dp"
-        android:layout_alignEnd="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="1dp"
-        android:onClick="tictac"
-        android:text="Tic Tac Toe " />
+    
 
     <Button
         android:id="@+id/Connect4"
