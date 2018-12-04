@@ -36,5 +36,6 @@
         android:layout_alignStart="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_marginTop="304dp"
+        android:onClick="Connect4"
         android:text="Connect 4" />
 </RelativeLayout>
