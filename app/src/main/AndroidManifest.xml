@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".pressGame" />
+        <activity android:name=".Connect4" />
         <activity android:name=".TicTacToe"
                   android:parentActivityName=".MainActivity">
     </activity>
