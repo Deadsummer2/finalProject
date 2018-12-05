@@ -52,7 +52,7 @@ public class pressGame extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 mp.start();
-                if (!twoAreUp)
+                if (twoAreUp)
                     pressThis2.setVisibility(View.VISIBLE);
                 else
                     twoAreUp = true;
@@ -111,8 +111,8 @@ public class pressGame extends AppCompatActivity {
                     X2 = (float)x;
                     Y2 = (float)y;}
                 else {
-                    pressThis.setY(Y);
-                    pressThis.setX(X);
+                    pressThis.setY(Y2);
+                    pressThis.setX(X2);
                 }
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
