@@ -43,8 +43,7 @@ public class pressGame extends AppCompatActivity {
         pressThis2 = findViewById(R.id.imageButton2);
 
         //https://stackoverflow.com/questions/26370993/how-to-get-image-resource
-        Integer imageResource1 = (Integer)pressThis.getTag();
-        Integer imageResource12 = (Integer)pressThis.getTag();
+        final Integer imageResource1 = (Integer)pressThis.getTag();
 
         //on button press this will run
         pressThis.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +85,10 @@ public class pressGame extends AppCompatActivity {
                 mainText.setBackgroundColor(000000);
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
-                pressThis.setImageResource(R.drawable.balloon_2);
+/*                if(imageResource1%2 == 0)
+                    pressThis2.setImageResource(R.drawable.balloon_2);
+                else
+                    pressThis2.setImageResource(R.drawable.balloon_3);*/
             }
         });
         pressThis2.setOnClickListener(new View.OnClickListener() {
@@ -111,12 +113,15 @@ public class pressGame extends AppCompatActivity {
                     X2 = (float)x;
                     Y2 = (float)y;}
                 else {
-                    pressThis.setY(Y2);
-                    pressThis.setX(X2);
+                    pressThis2.setY(Y2);
+                    pressThis2.setX(X2);
                 }
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
-                pressThis.setImageResource(R.drawable.balloon_2);
+/*                if(imageResource1%2 == 0)
+                    pressThis.setImageResource(R.drawable.balloon_one);
+                else
+                    pressThis.setImageResource(R.drawable.balloon_2);*/
 
             }
         });
