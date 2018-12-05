@@ -64,6 +64,7 @@ public class pressGame extends AppCompatActivity {
                 pressThis.setX(X);
                 //after press the initial text will disappear
                 mainText.setText("");
+                mainText.setBackgroundColor(000000);
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
             }
