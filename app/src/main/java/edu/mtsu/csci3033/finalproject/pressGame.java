@@ -72,6 +72,7 @@ public class pressGame extends AppCompatActivity {
                 mainText.setBackgroundColor(000000);
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
+                pressThis.setImageResource(R.drawable.balloon_2);
             }
         });
 
