@@ -56,7 +56,7 @@ public class pressGame extends AppCompatActivity {
                 else
                     twoAreUp = true;
                 //multiplier that will be applied to currentScore every button press
-                multiplier += .10;
+                multiplier += .05;
                 //calculate the score then convert to long
                 currentScore = 10 + ( currentScore * multiplier);
                 displayScore = (long)currentScore;
@@ -97,7 +97,7 @@ public class pressGame extends AppCompatActivity {
                 count++;
                 mp.start();
                 //multiplier that will be applied to currentScore every button press
-                multiplier += .10;
+                multiplier += .05;
                 //calculate the score then convert to long
                 currentScore = 10 + ( currentScore * multiplier);
                 displayScore = (long)currentScore;
