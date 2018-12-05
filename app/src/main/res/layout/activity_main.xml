@@ -4,38 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="163dp"
-        android:layout_height="114dp"
-        android:layout_alignEnd="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="157dp"
+        android:layout_height="134dp"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="214dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="186dp"
+        android:background="@android:color/transparent"
         android:onClick="tictac"
-        android:text="Tic Tac Toe " />
+        android:text=" "
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="165dp"
-        android:layout_height="121dp"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="186dp"
+        android:layout_marginEnd="219dp"
+        android:layout_marginBottom="195dp"
+        android:background="@android:color/transparent"
         android:onClick="Tappin"
-        android:text="Button press game" />
-    
+        android:visibility="visible" />
+
 
     <Button
         android:id="@+id/Connect4"
-        android:layout_width="166dp"
-        android:layout_height="119dp"
+        android:layout_width="153dp"
+        android:layout_height="125dp"
         android:layout_alignStart="@+id/button"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="304dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginBottom="11dp"
+        android:background="@android:color/transparent"
         android:onClick="Connect4"
-        android:text="Connect 4" />
+        android:visibility="visible" />
 </RelativeLayout>
