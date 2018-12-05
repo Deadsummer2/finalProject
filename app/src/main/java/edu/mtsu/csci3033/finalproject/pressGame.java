@@ -20,11 +20,15 @@ public class pressGame extends AppCompatActivity {
     double currentScore = 1;
     int count = 1;
     long displayScore = 0;
+    boolean twoAreUp = false;
+    float Y, X;
+    float Y2, X2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //initialising android screen elements
         final ImageButton pressThis;
+        final ImageButton pressThis2;
         final TextView mainText;
         final TextView finalScore;
         //https://stackoverflow.com/questions/26538421/how-do-i-play-sound-on-button-click-in-android-studio
@@ -36,6 +40,11 @@ public class pressGame extends AppCompatActivity {
         finalScore = findViewById(R.id.textView2);
         mainText = findViewById(R.id.textView);
         pressThis = findViewById(R.id.imageButton);
+        pressThis2 = findViewById(R.id.imageButton2);
+
+        //https://stackoverflow.com/questions/26370993/how-to-get-image-resource
+        Integer imageResource1 = (Integer)pressThis.getTag();
+        Integer imageResource12 = (Integer)pressThis.getTag();
 
         //on button press this will run
         pressThis.setOnClickListener(new View.OnClickListener() {
@@ -43,8 +52,12 @@ public class pressGame extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 mp.start();
+                if (!twoAreUp)
+                    pressThis2.setVisibility(View.VISIBLE);
+                else
+                    twoAreUp = true;
                 //multiplier that will be applied to currentScore every button press
-                multiplier += .15;
+                multiplier += .10;
                 //calculate the score then convert to long
                 currentScore = 10 + ( currentScore * multiplier);
                 displayScore = (long)currentScore;
@@ -53,6 +66,7 @@ public class pressGame extends AppCompatActivity {
                         @Override
                         public void run() {
                             pressThis.setVisibility(View.INVISIBLE);
+                            pressThis2.setVisibility(View.INVISIBLE);
                             mainText.setText("Time has run out!");
                             finalScore.setText("Final Score: " + String.valueOf(displayScore));
                             mainText.setBackgroundColor(8109494);
@@ -62,10 +76,10 @@ public class pressGame extends AppCompatActivity {
                 double randomXMult = Math.random() * 1000;
                 double randomYMult = Math.random() * 1700;
                 double y = 1 * randomYMult/* * posNegMult*/;
-                float Y = (float)y;
+                Y = (float)y;
                 pressThis.setY(Y);
                 double x = 1 * randomXMult /* * posNegMult*/;
-                float X = (float)x;
+                X = (float)x;
                 pressThis.setX(X);
                 //after press the initial text will disappear
                 mainText.setText("");
@@ -73,6 +87,37 @@ public class pressGame extends AppCompatActivity {
                 //display the users score
                 finalScore.setText(String.valueOf(displayScore));
                 pressThis.setImageResource(R.drawable.balloon_2);
+            }
+        });
+        pressThis2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                mp.start();
+                //multiplier that will be applied to currentScore every button press
+                multiplier += .10;
+                //calculate the score then convert to long
+                currentScore = 10 + ( currentScore * multiplier);
+                displayScore = (long)currentScore;
+
+                //calculating x and y values
+                double randomXMult = Math.random() * 1000;
+                double randomYMult = Math.random() * 1700;
+                double y = 1 * randomYMult/* * posNegMult*/;
+                double x = 1 * randomXMult /* * posNegMult*/;
+                X2 = (float)x;
+                Y2 = (float)y;
+                if(X == X2 || Y == Y2){
+                    X2 = (float)x;
+                    Y2 = (float)y;}
+                else {
+                    pressThis.setY(Y);
+                    pressThis.setX(X);
+                }
+                //display the users score
+                finalScore.setText(String.valueOf(displayScore));
+                pressThis.setImageResource(R.drawable.balloon_2);
+
             }
         });
 
