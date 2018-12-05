@@ -1,6 +1,7 @@
 package edu.mtsu.csci3033.finalproject;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,6 +27,8 @@ public class pressGame extends AppCompatActivity {
         final ImageButton pressThis;
         final TextView mainText;
         final TextView finalScore;
+        //https://stackoverflow.com/questions/26538421/how-do-i-play-sound-on-button-click-in-android-studio
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.balloonpopping);
        // final TextView score, multiplierDisplay;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_press_game);
@@ -39,6 +42,7 @@ public class pressGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
+                mp.start();
                 //multiplier that will be applied to currentScore every button press
                 multiplier += .15;
                 //calculate the score then convert to long
@@ -51,6 +55,7 @@ public class pressGame extends AppCompatActivity {
                             pressThis.setVisibility(View.INVISIBLE);
                             mainText.setText("Time has run out!");
                             finalScore.setText("Final Score: " + String.valueOf(displayScore));
+                            mainText.setBackgroundColor(8109494);
                         }
                     }, 8000);
                 //calculating x and y values
